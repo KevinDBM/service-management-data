@@ -28,6 +28,8 @@ export const Metric = sequelize.define<MetricInstance>(
     }
   },
   {
-    tableName: 'metrics'
+    tableName: 'metrics',
+    createdAt: false,
+    updatedAt: false
   }
 );

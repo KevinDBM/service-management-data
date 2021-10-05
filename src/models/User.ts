@@ -22,6 +22,8 @@ export const User = sequelize.define<UserInstance>(
     }
   },
   {
-    tableName: 'users'
+    tableName: 'users',
+    createdAt: false,
+    updatedAt: false
   }
 );

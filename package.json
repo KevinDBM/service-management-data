@@ -11,6 +11,10 @@
     "prestart": "npm run build",
     "start": "cross-env NODE_ENV=production tsc && node dist/index.js",
     "test": "npm run jest",
+    "db:run-migrations": "npx sequelize db:migrate",
+    "db:create-migration": "npx sequelize migration:create",
+    "db:create-seed": "npx sequelize-cli seed:generate",
+    "db:run-seeds": "npx sequelize-cli db:seed:all",
     "start-db:dev": "docker-compose -f database/mysql.yml up --build -d && docker-compose -f database/mongodb.yml up --build -d",
     "down-db:dev": "docker-compose -f database/mysql.yml down --remove-orphans && docker-compose -f database/mongodb.yml down --remove-orphans"
   },

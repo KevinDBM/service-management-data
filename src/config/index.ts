@@ -1,4 +1,4 @@
-import { configMysql } from './configMysql';
+const configMysql = require('./configMysql');
 import dotenv from 'dotenv';
 dotenv.config();
 
