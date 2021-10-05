@@ -10,7 +10,9 @@
     "start:dev": "cross-env NODE_ENV=development concurrently \"tsc --watch\" \"nodemon -q dist/index.js\"",
     "prestart": "npm run build",
     "start": "cross-env NODE_ENV=production tsc && node dist/index.js",
-    "test": "npm run jest"
+    "test": "npm run jest",
+    "start-db:dev": "docker-compose -f database/mysql.yml up --build -d && docker-compose -f database/mongodb.yml up --build -d",
+    "down-db:dev": "docker-compose -f database/mysql.yml down --remove-orphans && docker-compose -f database/mongodb.yml down --remove-orphans"
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,6 @@
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.11",
     "@types/handlebars": "^4.1.0",
-    "@types/html-pdf": "^2.2.1",
     "@types/node": "^14.14.22",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
@@ -35,7 +36,9 @@
     "express": "^4.17.1",
     "helmet": "^4.4.1",
     "jest": "^27.2.1",
+    "mongoose": "^6.0.9",
     "prettier": "^2.3.2",
+    "sequelize": "^6.6.5",
     "typescript": "^4.1.3"
   },
   "devDependencies": {

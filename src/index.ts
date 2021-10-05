@@ -1,13 +1,3 @@
-import helmet from 'helmet';
-import dotenv from 'dotenv';
-import app from './api/server';
+import { initApi } from './api';
 
-dotenv.config();
-
-const PORT = process.env.PORT || 8000;
-
-app.use(helmet());
-
-app.listen(PORT, () => {
-  console.log(`server listening on port ${PORT} ⚡`);
-});
+initApi();
