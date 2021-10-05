@@ -10,19 +10,11 @@ export const errorHandler = (
   let status = error.code || 500;
   let message = error.message || '';
 
-  let formattedErrors = error.errors;
-
-  if (error.errors && error.errors.details) {
-    formattedErrors = error.errors.details.map((error: any) => {
-      return {
-        [error.context.key]: error.message
-      };
-    });
-  }
-  const data = Object.keys(error.errors).length
-    ? {
-        errors_list: error.errors
-      }
-    : {};
+  const data =
+    error.errors && Object.keys(error.errors).length
+      ? {
+          errors_list: error.errors
+        }
+      : {};
   return responseHttp(res, status, message, data);
 };

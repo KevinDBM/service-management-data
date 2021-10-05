@@ -9,7 +9,7 @@ export const addCodeController = async (
 ) => {
   try {
     const newCodeData = await addCodeService(req.body);
-    return responseHttp(res, 200, 'new code registered', newCodeData);
+    return responseHttp(res, 201, 'new code registered', newCodeData);
   } catch (error) {
     next(error);
   }
