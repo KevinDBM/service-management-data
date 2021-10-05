@@ -1,9 +1,9 @@
-import exampleRoutes from './example';
+import codeRoutes from './code';
 const apiBase = '/api/v1';
 import { Express } from 'express';
 
 const routes = (app: Express) => {
-  app.use(`${apiBase}`, exampleRoutes);
+  app.use(`${apiBase}`, codeRoutes);
 };
 
 export default routes;

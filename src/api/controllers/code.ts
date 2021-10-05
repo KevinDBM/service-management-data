@@ -1,12 +1,13 @@
 import { NextFunction, Request, Response } from 'express';
+import { responseHttp } from '../utils/response-http';
 
-export const exampleController = async (
+export const addCodeController = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    return res.status(200).send('Example OK');
+    return responseHttp(res, 200, 'ok');
   } catch (error) {
     next(error);
   }
