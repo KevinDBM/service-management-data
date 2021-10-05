@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { responseHttp } from '../utils/response-http';
+import { addCode as addCodeService } from '../../services/addCode';
 
 export const addCodeController = async (
   req: Request,
@@ -7,7 +8,8 @@ export const addCodeController = async (
   next: NextFunction
 ) => {
   try {
-    return responseHttp(res, 200, 'ok');
+    const newCodeData = await addCodeService(req.body);
+    return responseHttp(res, 200, 'new code registered', newCodeData);
   } catch (error) {
     next(error);
   }

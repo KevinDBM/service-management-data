@@ -1,6 +1,7 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, ObjectId } from 'mongoose';
 
 export interface ICode {
+  _id?: ObjectId;
   owner: number;
   code: string;
 }
